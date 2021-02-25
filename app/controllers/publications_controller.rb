@@ -7,6 +7,7 @@ class PublicationsController < ApplicationController
     end
 
     def show
+        @posts = @publication.posts
     end
 
     def new

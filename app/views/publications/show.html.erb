@@ -1,3 +1,14 @@
-<%= @publication.name %>
+<%= link_to 'Create New Post', new_publication_post_path(@publication), class: "btn btn-primary" %>
+<br><br>
 
+<%= @publication.name %>
 <p><%= simple_format @publication.bio %></p>
+<br><br>
+
+<% @posts.each do |post| %>
+    <div class="card p-2">
+        <h4><%= link_to post.title, publication_post_path(@publication, post) %></h4>
+        <p><%= truncate post.body, length: 200 %></p>
+    </div>
+    <br>
+<% end %>

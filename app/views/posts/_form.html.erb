@@ -1,0 +1,13 @@
+<%= form_for [@publication, @post] do |form| %>
+    <div class="field mb-3">
+        <%= form.label :title, class: "form-label" %>
+        <%= form.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="field mb-3">
+        <%= form.label :body, class: "form-label" %>
+        <%= form.text_area :body, class: "form-control" %>
+    </div>
+
+    <%= form.submit "Submit", class: "btn btn-primary" %>
+<% end %>
