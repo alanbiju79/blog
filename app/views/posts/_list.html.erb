@@ -1,0 +1,8 @@
+<% @posts.each do |post| %>
+    <div class="card p-2 bg-light">
+        <p> <small> Published in <%= link_to post.publication.name, publication_path(post.publication) %> by <%= link_to post.account.first_name, profile_path(post.account.username) %> <%= time_ago_in_words post.created_at %> ago </small></p>
+        <h4><%= link_to post.title, publication_post_path(post.publication_id, post) %></h4>
+        <p><%= truncate post.body, length: 200 %></p>
+    </div>
+    <br>
+<% end %>

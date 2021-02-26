@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :accounts
+  get "u/:username" => "home#profile", as: :profile
 
   resources :publications do
     resources :posts
