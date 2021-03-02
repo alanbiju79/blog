@@ -1,8 +1,15 @@
-<%= link_to 'Create New Post', new_publication_post_path(@publication), class: "btn btn-primary" %>
+<% if @is_subscribed  %>
+    <%= link_to 'Create New Post', new_publication_post_path(@publication), class: "btn btn-primary" %>
+<% else %>
+    <%= render partial: "publications/subscribe", locals: { publication_id: @publication.id } %>
+<% end %>
 <br><br>
 
-<h2><%= @publication.name %></h2>
-<p><%= simple_format @publication.bio %></p>
+<div class="card p-2">
+    <h2><%= @publication.name %></h2>
+    <p><%= simple_format @publication.bio %></p>
+    <p>Members: <%= @subscriber_count %></p>
+</div>
 <br><br>
 
 <%= render partial: "posts/list", locals: {posts: @posts} %>

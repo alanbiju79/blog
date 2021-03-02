@@ -7,7 +7,7 @@ class Account < ApplicationRecord
   validates_presence_of :first_name, :last_name, :username
 
   has_many :posts
-  has_many :publications
+  has_many :publications, through: :subscriptions
 
   def full_name
     "#{first_name} #{last_name}"

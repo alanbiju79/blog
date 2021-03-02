@@ -8,6 +8,9 @@ class PublicationsController < ApplicationController
 
     def show
         @posts = @publication.posts
+        @subscriber_count = @publication.subscribers.count
+        @is_subscribed = account_signed_in? ? Subscription.where(publication_id: @publication.id, account_id: current_account.id).any? : false
+        @subscription = Subscription.new
     end
 
     def new
