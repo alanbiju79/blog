@@ -6,8 +6,10 @@ class Account < ApplicationRecord
 
   validates_presence_of :first_name, :last_name, :username
 
+  has_many :subscriptions
   has_many :posts
   has_many :publications, through: :subscriptions
+  has_many :comments
 
   def full_name
     "#{first_name} #{last_name}"
